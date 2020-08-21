@@ -1,0 +1,21 @@
+{
+  "name": "tree-sitter-tanuki",
+  "description": "Tanuki grammar for node-tree-sitter",
+  "version": "0.1.0",
+  "main": "index.js",
+  "author": "Khoi Pham",
+  "keywords": [
+    "parser",
+    "lexer"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "nan": "^2.14.1"
+  },
+  "scripts": {
+    "test": "tree-sitter test"
+  },
+  "devDependencies": {
+    "tree-sitter-cli": "^0.16.9"
+  }
+}

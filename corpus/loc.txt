@@ -1,0 +1,49 @@
+==================
+single row
+==================
+
+players[3]
+
+---
+
+(expr (selection
+  (table (identifier))
+  (row_loc (int))))
+
+==================
+multiple rows
+==================
+
+players[["a", "b"]]
+
+---
+
+(expr (selection
+  (table (identifier))
+  (row_loc (scalar_list (string) (string)))))
+
+==================
+row slice
+==================
+
+players[3:9]
+
+---
+
+(expr expr: (selection
+  table: (table (identifier))
+  select: (row_loc row_loc: (scalar_slice
+    begin: (int)
+    end: (int)))))
+
+==================
+all rows
+==================
+
+players[:]
+
+---
+
+(expr (selection
+  (table (identifier))
+  (row_loc (scalar_slice))))

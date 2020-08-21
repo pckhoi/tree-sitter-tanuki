@@ -1,0 +1,94 @@
+==================
+match
+==================
+
+players[.name match /L\. \w+/]
+
+---
+
+(expr (selection
+  (table (identifier))
+  (row_loc (func_match
+    (column_shorthand (identifier))
+    (regex)))))
+    
+==================
+match_ignorecase
+==================
+
+players[.name match_ignorecase /L\/\w+/]
+
+---
+
+(expr (selection
+  (table (identifier))
+  (row_loc (func_match_ignorecase
+    (column_shorthand (identifier))
+    (regex)))))
+
+==================
+contains
+==================
+
+players[.name contains "abc"]
+
+---
+
+(expr (selection
+  (table (identifier))
+  (row_loc (func_contains
+    (column_shorthand (identifier))
+    (string)))))
+
+==================
+contains_ignorecase
+==================
+
+players[.name contains_ignorecase /L\. \w+/]
+
+---
+
+(expr (selection
+  (table (identifier))
+  (row_loc (func_contains_ignorecase
+    (column_shorthand (identifier))
+    (regex)))))
+
+==================
+isna
+==================
+
+players[.name isna]
+
+---
+
+(expr (selection
+  (table (identifier))
+  (row_loc (func_isna
+    (column_shorthand (identifier))))))
+
+==================
+notna
+==================
+
+players[.name notna]
+
+---
+
+(expr (selection
+  (table (identifier))
+  (row_loc (func_notna
+    (column_shorthand (identifier))))))
+
+==================
+duplicated
+==================
+
+players[.name duplicated]
+
+---
+
+(expr (selection
+  (table (identifier))
+  (row_loc (func_duplicated
+    (column_shorthand (identifier))))))

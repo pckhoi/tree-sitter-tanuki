@@ -1,0 +1,55 @@
+==================
+single col
+==================
+
+players[:, age]
+
+---
+
+(expr (selection
+  (table (identifier))
+  (df_loc
+    (scalar_slice)
+    (identifier))))
+
+==================
+multiple cols
+==================
+
+players[:10, [age, name, club]]
+
+---
+
+(expr (selection
+  (table (identifier))
+  (df_loc
+    (scalar_slice (int))
+    (column_list (identifier) (identifier) (identifier)))))
+
+==================
+column slice
+==================
+
+players[[0, 10], age:club]
+
+---
+
+(expr expr: (selection
+  table: (table (identifier))
+  select: (df_loc
+    row_loc: (scalar_list scalar: (int) scalar: (int))
+    col_loc: (column_slice
+      begin: (identifier)
+      end: (identifier)))))
+
+==================
+all columns
+==================
+
+players[10, :]
+
+---
+
+(expr (selection
+  (table (identifier))
+  (df_loc (int) (column_slice))))

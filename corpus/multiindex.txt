@@ -1,0 +1,58 @@
+==================
+single row
+==================
+
+players[("abc", 123, dt"1987-01-23")]
+
+---
+
+(expr (selection
+  (table (identifier))
+  (row_loc (multiindex
+    (string)
+    (int)
+    (datetime (string))))))
+
+==================
+multiple rows
+==================
+
+players[[("def", 456), ("abc", 123)]]
+
+---
+
+(expr (selection
+  (table (identifier))
+  (row_loc (multiindex_list
+    (multiindex (string) (int))
+    (multiindex (string) (int))))))
+
+==================
+slice
+==================
+
+players[(1, 2):(10, 10)]
+
+---
+
+(expr expr: (selection
+  table: (table (identifier))
+  select: (row_loc row_loc: (multiindex_slice
+    begin: (multiindex scalar: (int) scalar: (int))
+    end: (multiindex scalar: (int) scalar: (int))))))
+
+==================
+each slice
+==================
+
+players[(:, ["abc", "asd"], :dt"1999")]
+
+---
+
+(expr expr: (selection
+  table: (table (identifier))
+  select: (row_loc row_loc: (multiindex_each_slice
+    sl_part: (scalar_slice)
+    sl_part: (scalar_list scalar: (string) scalar: (string))
+    sl_part: (scalar_slice 
+      end: (datetime (string)))))))

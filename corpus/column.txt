@@ -1,0 +1,13 @@
+==================
+column
+==================
+
+table.column
+
+---
+
+(expr
+  (column
+    (identifier)
+    (identifier)))
+

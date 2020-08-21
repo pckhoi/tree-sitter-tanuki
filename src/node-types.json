@@ -1,0 +1,2047 @@
+[
+  {
+    "type": "add",
+    "named": true,
+    "fields": {
+      "left": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "expr",
+            "named": true
+          }
+        ]
+      },
+      "right": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "expr",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "and",
+    "named": true,
+    "fields": {
+      "left": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "braced_bool",
+            "named": true
+          },
+          {
+            "type": "not",
+            "named": true
+          }
+        ]
+      },
+      "right": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "braced_bool",
+            "named": true
+          },
+          {
+            "type": "not",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "arithmetic",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "add",
+          "named": true
+        },
+        {
+          "type": "div",
+          "named": true
+        },
+        {
+          "type": "exp",
+          "named": true
+        },
+        {
+          "type": "floordiv",
+          "named": true
+        },
+        {
+          "type": "mod",
+          "named": true
+        },
+        {
+          "type": "mul",
+          "named": true
+        },
+        {
+          "type": "sub",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "braced_bool",
+    "named": true,
+    "fields": {
+      "boolean_index": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "and",
+            "named": true
+          },
+          {
+            "type": "eq",
+            "named": true
+          },
+          {
+            "type": "func_contains",
+            "named": true
+          },
+          {
+            "type": "func_contains_ignorecase",
+            "named": true
+          },
+          {
+            "type": "func_duplicated",
+            "named": true
+          },
+          {
+            "type": "func_duplicated_all",
+            "named": true
+          },
+          {
+            "type": "func_duplicated_first",
+            "named": true
+          },
+          {
+            "type": "func_duplicated_last",
+            "named": true
+          },
+          {
+            "type": "func_isna",
+            "named": true
+          },
+          {
+            "type": "func_match",
+            "named": true
+          },
+          {
+            "type": "func_match_ignorecase",
+            "named": true
+          },
+          {
+            "type": "func_notna",
+            "named": true
+          },
+          {
+            "type": "gt",
+            "named": true
+          },
+          {
+            "type": "gte",
+            "named": true
+          },
+          {
+            "type": "lt",
+            "named": true
+          },
+          {
+            "type": "lte",
+            "named": true
+          },
+          {
+            "type": "ne",
+            "named": true
+          },
+          {
+            "type": "not",
+            "named": true
+          },
+          {
+            "type": "or",
+            "named": true
+          },
+          {
+            "type": "xor",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "column",
+    "named": true,
+    "fields": {
+      "column": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "identifier",
+            "named": true
+          }
+        ]
+      },
+      "table": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "identifier",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "column_list",
+    "named": true,
+    "fields": {
+      "column": {
+        "multiple": true,
+        "required": true,
+        "types": [
+          {
+            "type": "identifier",
+            "named": true
+          }
+        ]
+      },
+      "other_columns": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": ",",
+            "named": false
+          },
+          {
+            "type": "identifier",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "column_shorthand",
+    "named": true,
+    "fields": {
+      "column": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "identifier",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "column_slice",
+    "named": true,
+    "fields": {
+      "begin": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "identifier",
+            "named": true
+          }
+        ]
+      },
+      "end": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "identifier",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "datetime",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "string",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "df_iloc",
+    "named": true,
+    "fields": {
+      "col_iloc": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "int",
+            "named": true
+          },
+          {
+            "type": "int_list",
+            "named": true
+          },
+          {
+            "type": "int_slice",
+            "named": true
+          }
+        ]
+      },
+      "row_iloc": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "int",
+            "named": true
+          },
+          {
+            "type": "int_list",
+            "named": true
+          },
+          {
+            "type": "int_slice",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "df_loc",
+    "named": true,
+    "fields": {
+      "col_loc": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "column_list",
+            "named": true
+          },
+          {
+            "type": "column_slice",
+            "named": true
+          },
+          {
+            "type": "identifier",
+            "named": true
+          }
+        ]
+      },
+      "row_loc": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "and",
+            "named": true
+          },
+          {
+            "type": "datetime",
+            "named": true
+          },
+          {
+            "type": "eq",
+            "named": true
+          },
+          {
+            "type": "float",
+            "named": true
+          },
+          {
+            "type": "func_contains",
+            "named": true
+          },
+          {
+            "type": "func_contains_ignorecase",
+            "named": true
+          },
+          {
+            "type": "func_duplicated",
+            "named": true
+          },
+          {
+            "type": "func_duplicated_all",
+            "named": true
+          },
+          {
+            "type": "func_duplicated_first",
+            "named": true
+          },
+          {
+            "type": "func_duplicated_last",
+            "named": true
+          },
+          {
+            "type": "func_isna",
+            "named": true
+          },
+          {
+            "type": "func_match",
+            "named": true
+          },
+          {
+            "type": "func_match_ignorecase",
+            "named": true
+          },
+          {
+            "type": "func_notna",
+            "named": true
+          },
+          {
+            "type": "gt",
+            "named": true
+          },
+          {
+            "type": "gte",
+            "named": true
+          },
+          {
+            "type": "int",
+            "named": true
+          },
+          {
+            "type": "lt",
+            "named": true
+          },
+          {
+            "type": "lte",
+            "named": true
+          },
+          {
+            "type": "multiindex",
+            "named": true
+          },
+          {
+            "type": "multiindex_each_slice",
+            "named": true
+          },
+          {
+            "type": "multiindex_list",
+            "named": true
+          },
+          {
+            "type": "multiindex_slice",
+            "named": true
+          },
+          {
+            "type": "ne",
+            "named": true
+          },
+          {
+            "type": "not",
+            "named": true
+          },
+          {
+            "type": "or",
+            "named": true
+          },
+          {
+            "type": "scalar_list",
+            "named": true
+          },
+          {
+            "type": "scalar_slice",
+            "named": true
+          },
+          {
+            "type": "string",
+            "named": true
+          },
+          {
+            "type": "xor",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "div",
+    "named": true,
+    "fields": {
+      "left": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "expr",
+            "named": true
+          }
+        ]
+      },
+      "right": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "expr",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "eq",
+    "named": true,
+    "fields": {
+      "left": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "column_shorthand",
+            "named": true
+          },
+          {
+            "type": "expr",
+            "named": true
+          }
+        ]
+      },
+      "right": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "column_shorthand",
+            "named": true
+          },
+          {
+            "type": "expr",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "exp",
+    "named": true,
+    "fields": {
+      "left": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "expr",
+            "named": true
+          }
+        ]
+      },
+      "right": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "expr",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "expr",
+    "named": true,
+    "fields": {
+      "arithmetic": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "arithmetic",
+            "named": true
+          }
+        ]
+      },
+      "expr": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "(",
+            "named": false
+          },
+          {
+            "type": ")",
+            "named": false
+          },
+          {
+            "type": "arithmetic",
+            "named": true
+          },
+          {
+            "type": "column",
+            "named": true
+          },
+          {
+            "type": "datetime",
+            "named": true
+          },
+          {
+            "type": "float",
+            "named": true
+          },
+          {
+            "type": "int",
+            "named": true
+          },
+          {
+            "type": "selection",
+            "named": true
+          },
+          {
+            "type": "string",
+            "named": true
+          },
+          {
+            "type": "table",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "floordiv",
+    "named": true,
+    "fields": {
+      "left": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "expr",
+            "named": true
+          }
+        ]
+      },
+      "right": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "expr",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "func_contains",
+    "named": true,
+    "fields": {
+      "left": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "column",
+            "named": true
+          },
+          {
+            "type": "column_shorthand",
+            "named": true
+          }
+        ]
+      },
+      "right": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "regex",
+            "named": true
+          },
+          {
+            "type": "string",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "func_contains_ignorecase",
+    "named": true,
+    "fields": {
+      "left": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "column",
+            "named": true
+          },
+          {
+            "type": "column_shorthand",
+            "named": true
+          }
+        ]
+      },
+      "right": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "regex",
+            "named": true
+          },
+          {
+            "type": "string",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "func_duplicated",
+    "named": true,
+    "fields": {
+      "left": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "column",
+            "named": true
+          },
+          {
+            "type": "column_shorthand",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "func_duplicated_all",
+    "named": true,
+    "fields": {
+      "left": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "column",
+            "named": true
+          },
+          {
+            "type": "column_shorthand",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "func_duplicated_first",
+    "named": true,
+    "fields": {
+      "left": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "column",
+            "named": true
+          },
+          {
+            "type": "column_shorthand",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "func_duplicated_last",
+    "named": true,
+    "fields": {
+      "left": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "column",
+            "named": true
+          },
+          {
+            "type": "column_shorthand",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "func_isna",
+    "named": true,
+    "fields": {
+      "left": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "column",
+            "named": true
+          },
+          {
+            "type": "column_shorthand",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "func_match",
+    "named": true,
+    "fields": {
+      "left": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "column",
+            "named": true
+          },
+          {
+            "type": "column_shorthand",
+            "named": true
+          }
+        ]
+      },
+      "right": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "regex",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "func_match_ignorecase",
+    "named": true,
+    "fields": {
+      "left": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "column",
+            "named": true
+          },
+          {
+            "type": "column_shorthand",
+            "named": true
+          }
+        ]
+      },
+      "right": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "regex",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "func_notna",
+    "named": true,
+    "fields": {
+      "left": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "column",
+            "named": true
+          },
+          {
+            "type": "column_shorthand",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "gt",
+    "named": true,
+    "fields": {
+      "left": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "column_shorthand",
+            "named": true
+          },
+          {
+            "type": "expr",
+            "named": true
+          }
+        ]
+      },
+      "right": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "column_shorthand",
+            "named": true
+          },
+          {
+            "type": "expr",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "gte",
+    "named": true,
+    "fields": {
+      "left": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "column_shorthand",
+            "named": true
+          },
+          {
+            "type": "expr",
+            "named": true
+          }
+        ]
+      },
+      "right": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "column_shorthand",
+            "named": true
+          },
+          {
+            "type": "expr",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "int_list",
+    "named": true,
+    "fields": {
+      "int": {
+        "multiple": true,
+        "required": true,
+        "types": [
+          {
+            "type": "int",
+            "named": true
+          }
+        ]
+      },
+      "other_ints": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": ",",
+            "named": false
+          },
+          {
+            "type": "int",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "int_slice",
+    "named": true,
+    "fields": {
+      "begin": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "int",
+            "named": true
+          }
+        ]
+      },
+      "end": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "int",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "lt",
+    "named": true,
+    "fields": {
+      "left": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "column_shorthand",
+            "named": true
+          },
+          {
+            "type": "expr",
+            "named": true
+          }
+        ]
+      },
+      "right": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "column_shorthand",
+            "named": true
+          },
+          {
+            "type": "expr",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "lte",
+    "named": true,
+    "fields": {
+      "left": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "column_shorthand",
+            "named": true
+          },
+          {
+            "type": "expr",
+            "named": true
+          }
+        ]
+      },
+      "right": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "column_shorthand",
+            "named": true
+          },
+          {
+            "type": "expr",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "mod",
+    "named": true,
+    "fields": {
+      "left": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "expr",
+            "named": true
+          }
+        ]
+      },
+      "right": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "expr",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "mul",
+    "named": true,
+    "fields": {
+      "left": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "expr",
+            "named": true
+          }
+        ]
+      },
+      "right": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "expr",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "multiindex",
+    "named": true,
+    "fields": {
+      "other_scalars": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": ",",
+            "named": false
+          },
+          {
+            "type": "datetime",
+            "named": true
+          },
+          {
+            "type": "float",
+            "named": true
+          },
+          {
+            "type": "int",
+            "named": true
+          },
+          {
+            "type": "string",
+            "named": true
+          }
+        ]
+      },
+      "scalar": {
+        "multiple": true,
+        "required": true,
+        "types": [
+          {
+            "type": "datetime",
+            "named": true
+          },
+          {
+            "type": "float",
+            "named": true
+          },
+          {
+            "type": "int",
+            "named": true
+          },
+          {
+            "type": "string",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "multiindex_each_slice",
+    "named": true,
+    "fields": {
+      "other_sl_parts": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": ",",
+            "named": false
+          },
+          {
+            "type": "scalar_list",
+            "named": true
+          },
+          {
+            "type": "scalar_slice",
+            "named": true
+          }
+        ]
+      },
+      "sl_part": {
+        "multiple": true,
+        "required": true,
+        "types": [
+          {
+            "type": "scalar_list",
+            "named": true
+          },
+          {
+            "type": "scalar_slice",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "multiindex_list",
+    "named": true,
+    "fields": {
+      "item": {
+        "multiple": true,
+        "required": true,
+        "types": [
+          {
+            "type": "multiindex",
+            "named": true
+          }
+        ]
+      },
+      "other_items": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": ",",
+            "named": false
+          },
+          {
+            "type": "multiindex",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "multiindex_slice",
+    "named": true,
+    "fields": {
+      "begin": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "multiindex",
+            "named": true
+          }
+        ]
+      },
+      "end": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "multiindex",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "ne",
+    "named": true,
+    "fields": {
+      "left": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "column_shorthand",
+            "named": true
+          },
+          {
+            "type": "expr",
+            "named": true
+          }
+        ]
+      },
+      "right": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "column_shorthand",
+            "named": true
+          },
+          {
+            "type": "expr",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "not",
+    "named": true,
+    "fields": {
+      "boolean_index": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "and",
+            "named": true
+          },
+          {
+            "type": "eq",
+            "named": true
+          },
+          {
+            "type": "func_contains",
+            "named": true
+          },
+          {
+            "type": "func_contains_ignorecase",
+            "named": true
+          },
+          {
+            "type": "func_duplicated",
+            "named": true
+          },
+          {
+            "type": "func_duplicated_all",
+            "named": true
+          },
+          {
+            "type": "func_duplicated_first",
+            "named": true
+          },
+          {
+            "type": "func_duplicated_last",
+            "named": true
+          },
+          {
+            "type": "func_isna",
+            "named": true
+          },
+          {
+            "type": "func_match",
+            "named": true
+          },
+          {
+            "type": "func_match_ignorecase",
+            "named": true
+          },
+          {
+            "type": "func_notna",
+            "named": true
+          },
+          {
+            "type": "gt",
+            "named": true
+          },
+          {
+            "type": "gte",
+            "named": true
+          },
+          {
+            "type": "lt",
+            "named": true
+          },
+          {
+            "type": "lte",
+            "named": true
+          },
+          {
+            "type": "ne",
+            "named": true
+          },
+          {
+            "type": "not",
+            "named": true
+          },
+          {
+            "type": "or",
+            "named": true
+          },
+          {
+            "type": "xor",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "or",
+    "named": true,
+    "fields": {
+      "left": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "braced_bool",
+            "named": true
+          },
+          {
+            "type": "not",
+            "named": true
+          }
+        ]
+      },
+      "right": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "braced_bool",
+            "named": true
+          },
+          {
+            "type": "not",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "row_iloc",
+    "named": true,
+    "fields": {
+      "iloc": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "int",
+            "named": true
+          },
+          {
+            "type": "int_list",
+            "named": true
+          },
+          {
+            "type": "int_slice",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "row_loc",
+    "named": true,
+    "fields": {
+      "row_loc": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "and",
+            "named": true
+          },
+          {
+            "type": "datetime",
+            "named": true
+          },
+          {
+            "type": "eq",
+            "named": true
+          },
+          {
+            "type": "float",
+            "named": true
+          },
+          {
+            "type": "func_contains",
+            "named": true
+          },
+          {
+            "type": "func_contains_ignorecase",
+            "named": true
+          },
+          {
+            "type": "func_duplicated",
+            "named": true
+          },
+          {
+            "type": "func_duplicated_all",
+            "named": true
+          },
+          {
+            "type": "func_duplicated_first",
+            "named": true
+          },
+          {
+            "type": "func_duplicated_last",
+            "named": true
+          },
+          {
+            "type": "func_isna",
+            "named": true
+          },
+          {
+            "type": "func_match",
+            "named": true
+          },
+          {
+            "type": "func_match_ignorecase",
+            "named": true
+          },
+          {
+            "type": "func_notna",
+            "named": true
+          },
+          {
+            "type": "gt",
+            "named": true
+          },
+          {
+            "type": "gte",
+            "named": true
+          },
+          {
+            "type": "int",
+            "named": true
+          },
+          {
+            "type": "lt",
+            "named": true
+          },
+          {
+            "type": "lte",
+            "named": true
+          },
+          {
+            "type": "multiindex",
+            "named": true
+          },
+          {
+            "type": "multiindex_each_slice",
+            "named": true
+          },
+          {
+            "type": "multiindex_list",
+            "named": true
+          },
+          {
+            "type": "multiindex_slice",
+            "named": true
+          },
+          {
+            "type": "ne",
+            "named": true
+          },
+          {
+            "type": "not",
+            "named": true
+          },
+          {
+            "type": "or",
+            "named": true
+          },
+          {
+            "type": "scalar_list",
+            "named": true
+          },
+          {
+            "type": "scalar_slice",
+            "named": true
+          },
+          {
+            "type": "string",
+            "named": true
+          },
+          {
+            "type": "xor",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "scalar_list",
+    "named": true,
+    "fields": {
+      "other_scalars": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": ",",
+            "named": false
+          },
+          {
+            "type": "datetime",
+            "named": true
+          },
+          {
+            "type": "float",
+            "named": true
+          },
+          {
+            "type": "int",
+            "named": true
+          },
+          {
+            "type": "string",
+            "named": true
+          }
+        ]
+      },
+      "scalar": {
+        "multiple": true,
+        "required": true,
+        "types": [
+          {
+            "type": "datetime",
+            "named": true
+          },
+          {
+            "type": "float",
+            "named": true
+          },
+          {
+            "type": "int",
+            "named": true
+          },
+          {
+            "type": "string",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "scalar_slice",
+    "named": true,
+    "fields": {
+      "begin": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "datetime",
+            "named": true
+          },
+          {
+            "type": "float",
+            "named": true
+          },
+          {
+            "type": "int",
+            "named": true
+          },
+          {
+            "type": "string",
+            "named": true
+          }
+        ]
+      },
+      "end": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "datetime",
+            "named": true
+          },
+          {
+            "type": "float",
+            "named": true
+          },
+          {
+            "type": "int",
+            "named": true
+          },
+          {
+            "type": "string",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "selection",
+    "named": true,
+    "fields": {
+      "column": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "column",
+            "named": true
+          }
+        ]
+      },
+      "expr": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "expr",
+            "named": true
+          }
+        ]
+      },
+      "row_select": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "row_iloc",
+            "named": true
+          },
+          {
+            "type": "row_loc",
+            "named": true
+          }
+        ]
+      },
+      "select": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "df_iloc",
+            "named": true
+          },
+          {
+            "type": "df_loc",
+            "named": true
+          },
+          {
+            "type": "row_iloc",
+            "named": true
+          },
+          {
+            "type": "row_loc",
+            "named": true
+          }
+        ]
+      },
+      "table": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "table",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "sub",
+    "named": true,
+    "fields": {
+      "left": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "expr",
+            "named": true
+          }
+        ]
+      },
+      "right": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "expr",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "table",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "identifier",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "xor",
+    "named": true,
+    "fields": {
+      "left": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "braced_bool",
+            "named": true
+          },
+          {
+            "type": "not",
+            "named": true
+          }
+        ]
+      },
+      "right": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "braced_bool",
+            "named": true
+          },
+          {
+            "type": "not",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "!=",
+    "named": false
+  },
+  {
+    "type": "%",
+    "named": false
+  },
+  {
+    "type": "&",
+    "named": false
+  },
+  {
+    "type": "(",
+    "named": false
+  },
+  {
+    "type": ")",
+    "named": false
+  },
+  {
+    "type": "*",
+    "named": false
+  },
+  {
+    "type": "**",
+    "named": false
+  },
+  {
+    "type": "+",
+    "named": false
+  },
+  {
+    "type": ",",
+    "named": false
+  },
+  {
+    "type": "-",
+    "named": false
+  },
+  {
+    "type": ".",
+    "named": false
+  },
+  {
+    "type": "/",
+    "named": false
+  },
+  {
+    "type": "//",
+    "named": false
+  },
+  {
+    "type": ":",
+    "named": false
+  },
+  {
+    "type": "<",
+    "named": false
+  },
+  {
+    "type": "<=",
+    "named": false
+  },
+  {
+    "type": "==",
+    "named": false
+  },
+  {
+    "type": ">",
+    "named": false
+  },
+  {
+    "type": ">=",
+    "named": false
+  },
+  {
+    "type": "[",
+    "named": false
+  },
+  {
+    "type": "]",
+    "named": false
+  },
+  {
+    "type": "^",
+    "named": false
+  },
+  {
+    "type": "contains",
+    "named": false
+  },
+  {
+    "type": "contains_ignorecase",
+    "named": false
+  },
+  {
+    "type": "dt",
+    "named": false
+  },
+  {
+    "type": "duplicated",
+    "named": false
+  },
+  {
+    "type": "duplicated_all",
+    "named": false
+  },
+  {
+    "type": "duplicated_first",
+    "named": false
+  },
+  {
+    "type": "duplicated_last",
+    "named": false
+  },
+  {
+    "type": "float",
+    "named": true
+  },
+  {
+    "type": "identifier",
+    "named": true
+  },
+  {
+    "type": "int",
+    "named": true
+  },
+  {
+    "type": "isna",
+    "named": false
+  },
+  {
+    "type": "match",
+    "named": false
+  },
+  {
+    "type": "match_ignorecase",
+    "named": false
+  },
+  {
+    "type": "notna",
+    "named": false
+  },
+  {
+    "type": "regex",
+    "named": true
+  },
+  {
+    "type": "string",
+    "named": true
+  },
+  {
+    "type": "{",
+    "named": false
+  },
+  {
+    "type": "|",
+    "named": false
+  },
+  {
+    "type": "}",
+    "named": false
+  },
+  {
+    "type": "~",
+    "named": false
+  }
+]

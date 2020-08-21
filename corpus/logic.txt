@@ -1,0 +1,87 @@
+==================
+boolean and
+==================
+
+players[(.age > 10) & (.name > "F")]
+
+---
+
+(expr (selection
+  (table (identifier))
+  (row_loc (and
+    (braced_bool (gt (column_shorthand (identifier)) (expr (int))))
+    (braced_bool (gt (column_shorthand (identifier)) (expr (string))))))))
+
+==================
+boolean or
+==================
+
+players[(.age > 10) | (.name match /F\./)]
+
+---
+
+(expr (selection
+  (table (identifier))
+  (row_loc (or
+    (braced_bool (gt (column_shorthand (identifier)) (expr (int))))
+    (braced_bool (func_match (column_shorthand (identifier)) (regex)))))))
+
+==================
+boolean xor
+==================
+
+players[(players.age > 10) ^ (.name > "L")]
+
+---
+
+(expr (selection
+  (table (identifier))
+  (row_loc (xor
+    (braced_bool (gt (expr (column (identifier) (identifier))) (expr (int))))
+    (braced_bool (gt (column_shorthand (identifier)) (expr (string))))))))
+
+==================
+boolean not
+==================
+
+players[~(players.age > 10)]
+
+---
+
+(expr (selection
+  (table (identifier))
+  (row_loc (not (gt
+    (expr (column (identifier) (identifier)))
+    (expr (int)))))))
+
+==================
+boolean braced 1
+==================
+
+players[(.age > 10) | ~((.name > "F") & (.height == 180))]
+
+---
+
+(expr (selection
+  (table (identifier))
+  (row_loc (or
+    (braced_bool (gt (column_shorthand (identifier)) (expr (int))))
+    (not (and
+      (braced_bool (gt (column_shorthand (identifier)) (expr (string))))
+      (braced_bool (eq (column_shorthand (identifier)) (expr (int))))))))))
+
+==================
+boolean braced 2
+==================
+
+players[(~(.age > 10) | (.name > "F")) & (.height == 180)]
+
+---
+
+(expr (selection
+  (table (identifier))
+  (row_loc (and
+    (braced_bool (or
+      (not (gt (column_shorthand (identifier)) (expr (int))))
+      (braced_bool (gt (column_shorthand (identifier)) (expr (string))))))
+    (braced_bool (eq (column_shorthand (identifier)) (expr (int))))))))

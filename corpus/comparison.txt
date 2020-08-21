@@ -1,0 +1,95 @@
+==================
+greater than
+==================
+
+players[players.age > 30]
+
+---
+
+(expr (selection
+  (table
+    (identifier))
+  (row_loc (gt
+    (expr (column
+      (identifier) (identifier)))
+    (expr (int))))))
+
+==================
+less than
+==================
+
+players[.height < 187.5]
+
+---
+
+(expr (selection
+  (table
+    (identifier))
+  (row_loc (lt
+    (column_shorthand
+      (identifier))
+    (expr (float))))))
+
+==================
+equal
+==================
+
+players[players.title == "abc"]
+
+---
+
+(expr (selection
+  (table
+    (identifier))
+  (row_loc (eq
+    (expr (column
+      (identifier) (identifier)))
+    (expr (string))))))
+
+==================
+not equal
+==================
+
+players[players.name != "def"]
+
+---
+
+(expr (selection
+  (table
+    (identifier))
+  (row_loc (ne
+    (expr (column
+      (identifier) (identifier)))
+    (expr (string))))))
+
+==================
+greater than or equal
+==================
+
+players[players.weight >= 80]
+
+---
+
+(expr (selection
+  (table
+    (identifier))
+  (row_loc (gte
+    (expr (column
+      (identifier) (identifier)))
+    (expr (int))))))
+
+==================
+less than or equal
+==================
+
+players[players.name <= "def"]
+
+---
+
+(expr (selection
+  (table
+    (identifier))
+  (row_loc (lte
+    (expr (column
+      (identifier) (identifier)))
+    (expr (string))))))

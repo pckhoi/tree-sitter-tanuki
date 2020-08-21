@@ -1,0 +1,123 @@
+==================
+Plus
+==================
+
+players.age + club.age
+
+---
+
+(expr (arithmetic (add
+  (expr (column (identifier) (identifier)))
+  (expr (column (identifier) (identifier))))))
+
+==================
+Subtract
+==================
+
+4 - individuals
+
+---
+
+(expr (arithmetic (sub
+  (expr (int))
+  (expr (table (identifier))))))
+
+==================
+Multiply
+==================
+
+players[.age < 40, [height, weight]] * 30
+
+---
+
+(expr (arithmetic (mul
+  (expr (selection
+    (table (identifier))
+    (df_loc
+      (lt (column_shorthand (identifier)) (expr (int)))
+      (column_list (identifier) (identifier)))))
+  (expr (int)))))
+
+==================
+Divide
+==================
+
+players.age{3} / 20
+
+---
+
+(expr (arithmetic (div
+  (expr (selection
+    (column (identifier) (identifier))
+    (row_iloc (int))))
+  (expr (int)))))
+
+==================
+Floor div
+==================
+
+this // that + 3
+
+---
+
+(expr (arithmetic (add
+  (expr (arithmetic (floordiv
+    (expr (table (identifier)))
+    (expr (table (identifier))))))
+  (expr (int)))))
+
+==================
+Exponential
+==================
+
+players.age[:10] * players.weight ** 2
+
+---
+
+(expr (arithmetic (mul
+  (expr (selection
+    (column (identifier) (identifier))
+    (row_loc (scalar_slice (int)))))
+  (expr (arithmetic (exp
+    (expr (column (identifier) (identifier)))
+    (expr (int))))))))
+
+==================
+braces 1
+==================
+
+(players.age + 10) * players.height[(.age < 30) & (.weight >= 100)]
+
+---
+
+(expr (arithmetic (mul
+  (expr (arithmetic (add
+    (expr (column (identifier) (identifier)))
+    (expr (int)))))
+  (expr (selection
+    (column (identifier) (identifier))
+    (row_loc (and
+      (braced_bool (lt
+        (column_shorthand (identifier))
+        (expr (int))))
+      (braced_bool (gte
+        (column_shorthand (identifier))
+        (expr (int)))))))))))
+
+==================
+braces 2
+==================
+
+-1 / (players[.weight notna, height] - 3)
+
+---
+
+(expr (arithmetic (div
+  (expr (int))
+  (expr (arithmetic (sub
+    (expr (selection
+      (table (identifier))
+      (df_loc (func_notna
+        (column_shorthand (identifier)))
+        (identifier))))
+    (expr (int))))))))
